@@ -123,9 +123,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String minMagnitude = sharedPrefs.getString(
-                getString(R.string.settings_min_magnitude_key),
-                getString(R.string.settings_min_magnitude_default));
+        String relevance = sharedPrefs.getString(
+                getString(R.string.settings_relevance_key),
+                getString(R.string.settings_relevance_default));
 
         String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_order_by_key),
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
         uriBuilder.appendQueryParameter("format", "geojson");
         uriBuilder.appendQueryParameter("limit", "10");
-        uriBuilder.appendQueryParameter("minmag", minMagnitude);
+        uriBuilder.appendQueryParameter("relevance", "relevance");
         uriBuilder.appendQueryParameter("orderby", "orderby");
 
         return new NewsLoader(this, uriBuilder.toString());
