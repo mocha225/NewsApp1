@@ -10,11 +10,6 @@
     android:paddingRight="16dp"
     android:paddingStart="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
     <TextView
         android:id="@+id/date"
         android:layout_gravity="center_vertical"
@@ -29,6 +24,11 @@
         android:textSize="16sp"
         android:text="12/21/2009" />
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
         <TextView
             android:id="@+id/headline"
             android:layout_width="wrap_content"
@@ -38,10 +38,8 @@
             android:maxLines="1"
             android:textAllCaps="true"
             android:textColor="@color/headline_color"
-            android:textSize="12sp"
+            android:textSize="16sp"
             tools:text="30km S of Long placeholder location that should wrap to more than 2 lines of text" />
-
-    </LinearLayout>
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -56,9 +54,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="1"
             android:textColor="@color/headline_color"
-            android:textSize="16sp"
+            android:textSize="12sp"
             tools:text="Author"
             android:layout_alignParentLeft="true"/>
 
@@ -66,17 +64,29 @@
           android:id="@+id/section"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_gravity="right"
+          android:layout_gravity="center_horizontal"
           android:ellipsize="end"
           android:maxLines="1"
           android:textColor="@color/headline_color"
-          android:textSize="16sp"
+          android:textSize="12sp"
           tools:text="Section 2B"
-          android:layout_alignParentRight="true"/>
+          android:layout_centerHorizontal="true"/>
 
-
+        <TextView
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/url"
+            android:textColor="@color/url"
+            android:textSize="12sp"
+            tools:text="Section 2B"
+            android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
+    </LinearLayout>
 
     <android.support.v4.widget.Space
         android:layout_height="1dp"

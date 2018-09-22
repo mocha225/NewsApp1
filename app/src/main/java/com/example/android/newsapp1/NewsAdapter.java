@@ -26,8 +26,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class NewsAdapter extends ArrayAdapter<News> {
@@ -46,10 +44,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
         listItemView = LayoutInflater.from(getContext()).inflate(R.layout.news_listitem, parent, false);
     }
 
-            //Get the latest article detailes and then returning it into a view. and the View will then be repeated until ListView is full
+            //Get the latest article details and then returning it into a view. and the View will then be repeated until ListView is full
             News currentNews = getItem(position);
 
-    //Now have to get the object located at this poisition in the list view.
+    //Now have to get the object located at this position in the list view.
     TextView articleHeadline = listItemView.findViewById(R.id.headline);
     TextView articleDate = listItemView.findViewById(R.id.date);
     TextView articleSection = listItemView.findViewById(R.id.section);
@@ -61,4 +59,5 @@ public class NewsAdapter extends ArrayAdapter<News> {
     articleAuthor.setText(currentNews.getArticleAuthor());
     return listItemView;
 }
+
 }

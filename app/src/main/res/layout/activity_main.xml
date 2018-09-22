@@ -44,34 +44,4 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
-    //This view will show progress bar for initial loading delay as JSON is parsed.
-    <RelativeLayout
-        android:id="@+id/news_loading_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
-    //This will get an empty screen when there is no connection.
-
-
-    <RelativeLayout
-        android:id="@+id/news_no_network_layout"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
-
-
-    //This will be a empty layout.
-
-
-
-
-
-//This Layout will show what happens when there is no news.
-    <RelativeLayout
-        android:id="@+id/news_no_news_layout"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
-    </RelativeLayout>
-
 </RelativeLayout>

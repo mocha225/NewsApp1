@@ -14,7 +14,7 @@ package com.example.android.newsapp1;
          mArticleDate = articleDate;
          mArticleSection = articleSection;
          mArticleAuthor = articleAuthor;
-            String mArticleUrl = articleUrl;
+         mArticleUrl = articleUrl;
         }
 
     public String getArticleHeadline() {
@@ -30,7 +30,7 @@ package com.example.android.newsapp1;
     }
 
     public String getArticleAuthor() {
-        return mArticleSection;
+        return mArticleAuthor;
     }
 
     public String getUrl() {
