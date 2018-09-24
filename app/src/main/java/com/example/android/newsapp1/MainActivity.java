@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     //URL to query the guardian dataset for lastest news.
-    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/sports?sports/tennis&show-fields=thumbnail,byline&order-by=newest&format=json&api-key=-key=992edae8-43cd-4d1a-ad31-beebb23de80f";
+    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?&show-tags=contributor&order-by=newest&format=json&api-key=992edae8-43cd-4d1a-ad31-beebb23de80f";
 
     /**
      * Constant value for the NEWS loader ID. We can choose any integer.
@@ -135,10 +135,10 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        uriBuilder.appendQueryParameter("format", "geojson");
-        uriBuilder.appendQueryParameter("limit", "10");
-        uriBuilder.appendQueryParameter("relevance", "relevance");
-        uriBuilder.appendQueryParameter("orderby", "orderby");
+        uriBuilder.appendQueryParameter("q", "sports");
+        uriBuilder.appendQueryParameter("show-fields", "thumbnail,byline");
+        uriBuilder.appendQueryParameter("api-key", "992edae8-43cd-4d1a-ad31-beebb23de80f");
+
 
         return new NewsLoader(this, uriBuilder.toString());
     }
