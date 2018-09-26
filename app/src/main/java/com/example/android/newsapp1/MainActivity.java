@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     //URL to query the guardian dataset for lastest news.
-    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?&show-tags=contributor&order-by=newest&format=json&api-key=992edae8-43cd-4d1a-ad31-beebb23de80f";
+    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?&show-fields=thumbnail,byline&order-by=newest&format=json&api-key=54b2c840-3c4a-4ebc-a50b-944b1bad407f";
 
     /**
      * Constant value for the NEWS loader ID. We can choose any integer.
@@ -123,21 +123,15 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String relevance = sharedPrefs.getString(
+        String orderBy = sharedPrefs.getString(
                 getString(R.string.settings_relevance_key),
                 getString(R.string.settings_relevance_default));
-
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default)
-        );
-
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        uriBuilder.appendQueryParameter("q", "sports");
+        uriBuilder.appendQueryParameter("q", "tennis");
         uriBuilder.appendQueryParameter("show-fields", "thumbnail,byline");
-        uriBuilder.appendQueryParameter("api-key", "992edae8-43cd-4d1a-ad31-beebb23de80f");
+        uriBuilder.appendQueryParameter("api-key", "54b2c840-3c4a-4ebc-a50b-944b1bad407f");
 
 
         return new NewsLoader(this, uriBuilder.toString());

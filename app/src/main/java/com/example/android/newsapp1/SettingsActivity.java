@@ -23,7 +23,7 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
 
-            Preference relevance = findPreference(getString(R.string.settings_order_by_default));
+            Preference relevance = findPreference(getString(R.string.settings_relevance_default));
             bindPreferenceSummaryToValue(relevance);
 
 

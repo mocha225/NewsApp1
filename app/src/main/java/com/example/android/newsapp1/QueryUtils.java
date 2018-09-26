@@ -77,6 +77,7 @@ import org.json.JSONObject;
 
         private static String makeHttpRequest(URL url) throws IOException {
             String jsonResponse = "";
+            Log.i(LOG_TAG, "fart:: the URL: " + "https://content.guardianapis.com/search?&show-tags=contributor&order-by=newest&format=json&api-key=954b2c840-3c4a-4ebc-a50b-944b1bad407f");
 
             //Check for null, then return early.
             if (url == null) {
