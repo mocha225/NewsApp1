@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     //URL to query the guardian dataset for lastest news.
-    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?&show-fields=thumbnail,byline&order-by=newest&format=json&api-key=54b2c840-3c4a-4ebc-a50b-944b1bad407f";
+    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?&show-fields=thumbnail,byline&order-by=newest&format=json";
 
     /**
      * Constant value for the NEWS loader ID. We can choose any integer.
