@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingEnd="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingStart="16dp">
+    android:paddingEnd="@dimen/padding"
+    android:paddingLeft="@dimen/padding"
+    android:paddingRight="@dimen/padding"
+    android:paddingStart="@dimen/padding">
 
     <TextView
         android:id="@+id/date"
@@ -41,51 +41,52 @@
             android:textSize="16sp"
             tools:text="30km S of Long placeholder location that should wrap to more than 2 lines of text" />
 
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/RelativeLayout01"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:padding="10dp">
+                <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout01"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
 
-        <TextView
-            android:id="@+id/author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textColor="@color/headline_color"
-            android:textSize="12sp"
-            tools:text="Author"
-            android:layout_alignParentLeft="true"/>
+                <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/headline_color"
+                android:textSize="12sp"
+                tools:text="Author"
+                android:layout_alignParentLeft="true"/>
 
-      <TextView
-          android:id="@+id/section"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center_horizontal"
-          android:ellipsize="end"
-          android:maxLines="1"
-          android:textColor="@color/headline_color"
-          android:textSize="12sp"
-          tools:text="Section 2B"
-          android:layout_centerHorizontal="true"/>
+                <TextView
+                android:id="@+id/section"
+                android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:ellipsize="end"
+                android:maxLines="1"
+                  android:textColor="@color/headline_color"
+                android:textSize="12sp"
+                tools:text="Section 2B"
+                android:layout_centerHorizontal="true"/>
 
-        <TextView
-            android:id="@+id/url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@string/url"
-            android:textColor="@color/url"
-            android:textSize="12sp"
-            tools:text="Section 2B"
-            android:layout_alignParentRight="true"/>
+                <TextView
+                    android:id="@+id/url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/url"
+                android:textColor="@color/url"
+                android:textSize="12sp"
+                tools:text="Section 2B"
+                android:layout_alignParentRight="true"/>
 
-    </RelativeLayout>
+                </RelativeLayout>
+
     </LinearLayout>
 
     <android.support.v4.widget.Space

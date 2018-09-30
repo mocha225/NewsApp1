@@ -23,8 +23,9 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
 
-            Preference relevance = findPreference(getString(R.string.settings_relevance_default));
-            bindPreferenceSummaryToValue(relevance);
+            // Get the max number of articles preference and apply
+            Preference maxArticles = findPreference(getString(R.string.settings_max_articles_key));
+            bindPreferenceSummaryToValue(maxArticles);
 
 
             Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
@@ -55,4 +56,4 @@ public class SettingsActivity extends AppCompatActivity {
             onPreferenceChange(preference, preferenceString);
         }
     }
-    }
+}

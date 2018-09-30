@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     //URL to query the guardian dataset for lastest news.
-    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?&show-fields=thumbnail,byline&order-by=newest&format=json";
+    String apiKey = BuildConfig.THE_GUARDIAN_API_KEY;
+    String url = "https://content.guardianapis.com/search?api-key=" + apiKey;
 
     /**
      * Constant value for the NEWS loader ID. We can choose any integer.
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
     private TextView mEmptyStateTextView;
 
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,14 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         // to open a website with more information about the selected earthquake.
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            preferences = PreferenceManager.getDefaultSharedPrefernces(this);
+            preferences.registerOnSharedPreferenceChangeListener(this);
+
+            @Override
+            protected void onDestroy() {
+                super.onDestroy();
+                preferences.unregisterOnSharedPreferenceChangeListener(this);
+            }
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 News currentNews = mAdapter.getItem(position);
@@ -119,20 +129,27 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
     }
+
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
 
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.settings_relevance_key),
-                getString(R.string.settings_relevance_default));
-        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
+        // getString retrieves a String value from the preferences. The second parameter is the default value for this preference.
+        String maxArticles = preferences.getString(
+                getString(R.string.settings_max_articles_key),
+                getString(R.string.settings_max_articles_default));
+
+        String orderBy = preferences.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default)
+        );
+
+        Uri baseUri = Uri.parse(apiKey);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         uriBuilder.appendQueryParameter("q", "tennis");
-        uriBuilder.appendQueryParameter("show-fields", "thumbnail,byline");
-        uriBuilder.appendQueryParameter("api-key", "54b2c840-3c4a-4ebc-a50b-944b1bad407f");
-
+        uriBuilder.appendQueryParameter("order-by", orderBy);
+        uriBuilder.appendQueryParameter("page-size", maxArticles);
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
 
         return new NewsLoader(this, uriBuilder.toString());
     }
@@ -176,7 +193,6 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
 
 

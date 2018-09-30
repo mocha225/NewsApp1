@@ -38,8 +38,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         //I used the list view because I am not comfortable with using the gridview for ui.
         @Override
-    public View getView (int position, View convertView, @NonNull ViewGroup parent) {
-    View listItemView = convertView;
+        public View getView (int position, View convertView, @NonNull ViewGroup parent) {
+        View listItemView = convertView;
             if (listItemView == null) {
         listItemView = LayoutInflater.from(getContext()).inflate(R.layout.news_listitem, parent, false);
     }
@@ -47,17 +47,16 @@ public class NewsAdapter extends ArrayAdapter<News> {
             //Get the latest article details and then returning it into a view. and the View will then be repeated until ListView is full
             News currentNews = getItem(position);
 
-    //Now have to get the object located at this position in the list view.
-    TextView articleHeadline = listItemView.findViewById(R.id.headline);
-    TextView articleDate = listItemView.findViewById(R.id.date);
-    TextView articleSection = listItemView.findViewById(R.id.section);
-    TextView articleAuthor = listItemView.findViewById(R.id.author);
+            //Now have to get the object located at this position in the list view.
+            TextView articleHeadline = listItemView.findViewById(R.id.headline);
+            TextView articleDate = listItemView.findViewById(R.id.date);
+            TextView articleSection = listItemView.findViewById(R.id.section);
+            TextView articleAuthor = listItemView.findViewById(R.id.author);
 
-    articleHeadline.setText(currentNews.getArticleHeadline());
-    articleDate.setText(currentNews.getArticleDate());
-    articleSection.setText(currentNews.getArticleSection());
-    articleAuthor.setText(currentNews.getArticleAuthor());
-    return listItemView;
-}
-
+            articleHeadline.setText(currentNews.getArticleHeadline());
+            articleDate.setText(currentNews.getArticleDate());
+            articleSection.setText(currentNews.getArticleSection());
+            articleAuthor.setText(currentNews.getArticleAuthor());
+            return listItemView;
+    }
 }
